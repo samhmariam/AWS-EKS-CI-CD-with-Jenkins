@@ -28,11 +28,8 @@ pipeline {
       }
     }
     stage('Deploy Container') {
-      steps {
-        kubernetesDeploy(
-          kubeconfigId: 'kubeconfig',
-          configs: 'deployment-blue.yml', 'service-blue.yml',
-        )
+      steps{
+        sh 'kubectl apply -f /.deployment-blue.yml'
       }
     }
   }
