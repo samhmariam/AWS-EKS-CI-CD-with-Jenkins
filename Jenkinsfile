@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Deploy Container') {
       steps{
-        sh 'kubectl apply -f /.deployment-blue.yml'
+        sh 'kubectl apply -f ./deployment-blue.yml'
       }
     }
   }
