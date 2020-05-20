@@ -1,6 +1,6 @@
 ---
-kind: ReplicationController
 apiVersion: v1
+kind: ReplicationController
 metadata:
   name: blue
   labels:
