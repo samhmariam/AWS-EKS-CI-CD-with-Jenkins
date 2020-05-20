@@ -29,7 +29,10 @@ pipeline {
     }
     stage('Deploy Container') {
       steps {
-        sh "cd deployment-blue && ./run_kubernetes.sh"
+        kubernetesDeploy(
+          kubeconfigId: 'kubeconfig',
+          configs: 'deployment-blue.yml', 'service-blue.yml',
+        )
       }
     }
   }
