@@ -27,9 +27,10 @@ pipeline {
         }
       }
     }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:v2"
+    stage('Deploy Container') {
+      steps {
+        sh 'kubectl apply -f ./controller-blue.yml'
+        sh 'kubectl apply -f ./service.yml'
       }
     }
   }
