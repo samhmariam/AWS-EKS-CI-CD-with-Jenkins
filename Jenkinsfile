@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "samhmariam/capstone:v1"
+    registry = "samhmariam/capstone"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
@@ -14,7 +14,7 @@ pipeline {
     stage('Building Image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + ":v1"
         }
       }
     }
@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
+        sh "docker rmi $registry:v1"
       }
     }
   }
