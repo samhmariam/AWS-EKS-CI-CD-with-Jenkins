@@ -29,8 +29,7 @@ pipeline {
     }
     stage('Deploy Container') {
       steps {
-        sh 'kubectl apply -f ./controller-blue.yml'
-        sh 'kubectl apply -f ./service.yml'
+        sh "cd deployment-blue && ./run_kubernetes.sh"
       }
     }
   }
