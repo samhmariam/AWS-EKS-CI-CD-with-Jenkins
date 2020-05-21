@@ -31,7 +31,7 @@ pipeline {
       steps{
         kubernetesDeploy(
           kubeconfigId: 'kubeconfig',
-          configs:  'blue-deployment.yml'
+          configs:  'service.yml'
         )
       }
     }
