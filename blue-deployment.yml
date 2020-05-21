@@ -9,7 +9,7 @@ spec:
   - port: 8000
     targetPort: 80
   selector:
-    app: green
+    app: blue
   type: LoadBalancer
 
 ---
