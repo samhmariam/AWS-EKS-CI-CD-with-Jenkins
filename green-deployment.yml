@@ -1,4 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: bluegreenlb
+  labels:
+    app: bluegreenlb
+spec:
+  ports:
+  - port: 8000
+    targetPort: 80
+  selector:
+    app: green
+  type: LoadBalancer
+
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,6 +32,6 @@ spec:
     spec:
       containers:
       - name: green
-        image: samhmariam/capstone:v2
+        image: samhmariam/capstone:v1
         ports:
         - containerPort: 80
