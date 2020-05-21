@@ -32,6 +32,6 @@ spec:
     spec:
       containers:
       - name: green
-        image: samhmariam/capstone:v1
+        image: samhmariam/capstone:v2
         ports:
         - containerPort: 80
